@@ -1,24 +1,19 @@
-export default function todosReducer(state = {}, action) {
+export default function todosReducer(state = [{name:"sebin",email:'sebin@123'}], action) {
     switch (action.type) {
-      case 'user/updateUserList': {
-        // Can return just the new todos array - no extra object around it
+      case 'user/addUserList': {
+        
         return [
           ...state,
           ...action.userList
         ]
       }
-    //   case 'todos/todoToggled': {
-    //     return state.map(todo => {
-    //       if (todo.id !== action.payload) {
-    //         return todo
-    //       }
-  
-    //       return {
-    //         ...todo,
-    //         completed: !todo.completed
-    //       }
-    //     })
-    //   }
+      case 'user/updateUserList': {
+        
+        return [
+          ...action.userList
+        ]
+      }
+    
       default:
         return state
     }
